@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidZip360 - Professional Video Compression</title>
+    <meta name="description" content="Compress videos online with VidZip360. Reduce video file size without losing quality. Fast, secure, and free video compression.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Futuristic Intro Screen -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="intro-container">
+            <div class="particles-container">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="logo-animation">
+                <div class="logo-main" id="logo-text">VidZip360</div>
+                <div class="logo-sub">ADVANCED VIDEO COMPRESSION TECHNOLOGY</div>
+            </div>
+            <div class="loading-container">
+                <div class="loading-bar">
+                    <div class="loading-progress" id="loading-progress"></div>
+                </div>
+                <div class="loading-text" id="loading-text">Initializing Systems...</div>
+            </div>
+            <div class="feature-highlights">
+                <div class="feature-item">🚀 Ultra-Fast Compression</div>
+                <div class="feature-item">🎯 Smart Quality Optimization</div>
+                <div class="feature-item">🔒 Secure & Private</div>
+            </div>
+            <div class="copyright">
+                <div>All Rights Reserved © 2025 Chirag Pulse Studio</div>
+                <div class="version">Version 2.0.1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Effect Container for Completion -->
+    <div id="completion-particles" class="completion-particles hidden"></div>
+
+    <!-- Main Website Content -->
+    <div class="main-container hidden" id="main-container">
+        <!-- Animated Background Elements -->
+        <div class="animated-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <!-- Header Section -->
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">🎬</div>
+                    <h1 class="logo-text">VidZip360</h1>
+                </div>
+                <nav class="main-nav">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-section">
+                <h2 class="hero-title">Compress Videos Like Never Before</h2>
+                <p class="hero-subtitle">Reduce video file sizes by up to 80% while maintaining exceptional quality with our advanced compression algorithms.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="videos-compressed">10K+</div>
+                        <div class="stat-label">Videos Compressed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="space-saved">500GB+</div>
+                        <div class="stat-label">Space Saved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="compression-rate">98%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <!-- Upload Section -->
+            <section class="upload-section glass-card" id="upload-section">
+                <div class="section-header">
+                    <h2>Start Compressing Your Video</h2>
+                    <p class="section-description">Upload your video file and let our intelligent compression engine work its magic</p>
+                </div>
+                
+                <div class="upload-container">
+                    <div class="upload-area" id="upload-area">
+                        <input type="file" id="file-input" accept="video/*" hidden>
+                        <div class="upload-content">
+                            <div class="upload-icon">📁</div>
+                            <div class="upload-text">
+                                <h3>Drop your video here or click to browse</h3>
+                                <p>Supports MP4, AVI, MOV, MKV, WMV, FLV, and WebM formats</p>
+                                <div class="file-limits">
+                                    <span>Max file size: 500MB</span>
+                                    <span>•</span>
+                                    <span>All devices supported</span>
+                                </div>
+                            </div>
+                            <button class="upload-btn pulse-glow" id="upload-btn">
+                                <span class="btn-icon">🔍</span>
+                                Browse Files
+                            </button>
+                        </div>
+                        <div class="upload-drag-overlay">
+                            <div class="drag-text">Drop your video here</div>
+                        </div>
+                    </div>
+                    
+                    <div class="file-info hidden" id="file-info">
+                        <div class="file-header">
+                            <h4>Selected File</h4>
+                            <button class="clear-file" id="clear-file">✕</button>
+                        </div>
+                        <div class="file-details">
+                            <div class="file-icon">🎥</div>
+                            <div class="file-meta">
+                                <div class="file-name" id="file-name">video_file.mp4</div>
+                                <div class="file-specs">
+                                    <span class="file-size" id="file-size">0 MB</span>
+                                    <span class="file-duration" id="file-duration">0:00</span>
+                                    <span class="file-resolution" id="file-resolution">0x0</span>
+                                </div>
+                            </div>
+                            <div class="file-actions">
+                                <button class="preview-btn" id="preview-btn">👁️ Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Preview Modal -->
+                <div class="preview-modal hidden" id="preview-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Video Preview</h3>
+                            <button class="close-modal" id="close-modal">✕</button>
+                        </div>
+                        <div class="modal-body">
+                            <video class="preview-player" id="preview-player" controls></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compression Options Section -->
+            <section class="compression-section glass-card hidden" id="compression-section">
+                <div class="section-header">
+                    <h2>Choose Compression Level</h2>
+                    <p class="section-description">Select the perfect balance between file size and video quality for your needs</p>
+                </div>
+                
+                <div class="compression-options">
+                    <div class="options-grid">
+                        <!-- Light Compression -->
+                        <div class="option-card" data-level="low">
+                            <div class="option-header">
+                                <div class="option-icon">👍</div>
+                                <div class="option-badge recommended">Recommended</div>
+                            </div>
+                            <div class="option-content">
+                                <h3>Light Compression</h3>
+                                <p class="option-description">Perfect for maintaining highest quality while reducing file size moderately</p>
+                                <div class="option-features">
+                                    <div class="feature">🎯 Near Original Quality</div>
+                                    <div class="feature">⚡ Fast Processing</div>
+                                    <div class="feature">📱 Social Media Ready</div>
+                                </div>
+                                <div class="option-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Size Reduction</span>
+                                        <span class="stat-value">30-40%</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Quality</span>
+                                        <span class="stat-value excellent">Excellent</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Speed</span>
+                                        <span class="stat-value fast">Fast</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selection-indicator">
+                                <div class="indicator-circle"></div>
+                            </div>
+                        </div>
+
+                        <!-- Balanced Compression -->
+                        <div class="option-card" data-level="medium">
+                            <div class="option-header">
+                                <div class="option-icon">⚡</div>
+                                <div class="option-badge popular">Most Popular</div>
+                            </div>
+                            <div class="option-content">
+                                <h3>Balanced Compression</h3>
+                                <p class="option-description">Ideal balance between file size reduction and quality preservation</p>
+                                <div class="option-features">
+                                    <div class="feature">🎯 Great Quality</div>
+                                    <div class="feature">⚡ Optimal Speed</div>
+                                    <div class="feature">💾 Storage Friendly</div>
+                                </div>
+                                <div class="option-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Size Reduction</span>
+                                        <span class="stat-value">50-60%</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Quality</span>
+                                        <span class="stat-value good">Very Good</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Speed</span>
+                                        <span class="stat-value medium">Medium</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selection-indicator">
+                                <div class="indicator-circle"></div>
+                            </div>
+                        </div>
+
+                        <!-- Maximum Compression -->
+                        <div class="option-card" data-level="high">
+                            <div class="option-header">
+                                <div class="option-icon">🔥</div>
+                                <div class="option-badge efficient">Space Saver</div>
+                            </div>
+                            <div class="option-content">
+                                <h3>Maximum Compression</h3>
+                                <p class="option-description">Maximum file size reduction for storage and sharing with good quality</p>
+                                <div class="option-features">
+                                    <div class="feature">🎯 Good Quality</div>
+                                    <div class="feature">💾 Maximum Savings</div>
+                                    <div class="feature">📧 Easy Sharing</div>
+                                </div>
+                                <div class="option-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Size Reduction</span>
+                                        <span class="stat-value">70-80%</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Quality</span>
+                                        <span class="stat-value decent">Good</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Speed</span>
+                                        <span class="stat-value slow">Slower</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selection-indicator">
+                                <div class="indicator-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compression Preview -->
+                    <div class="compression-preview hidden" id="compression-preview">
+                        <div class="preview-header">
+                            <h4>Compression Preview</h4>
+                            <div class="preview-badge" id="preview-level">Balanced</div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="size-comparison">
+                                <div class="size-original">
+                                    <div class="size-label">Original</div>
+                                    <div class="size-bar">
+                                        <div class="size-fill original-fill" id="original-size-bar"></div>
+                                    </div>
+                                    <div class="size-value" id="original-size-value">0 MB</div>
+                                </div>
+                                <div class="size-compressed">
+                                    <div class="size-label">Compressed</div>
+                                    <div class="size-bar">
+                                        <div class="size-fill compressed-fill" id="compressed-size-bar"></div>
+                                    </div>
+                                    <div class="size-value" id="compressed-size-value">0 MB</div>
+                                </div>
+                            </div>
+                            <div class="savings-display">
+                                <div class="savings-badge">
+                                    <span class="savings-percent" id="savings-preview">0%</span>
+                                    <span class="savings-text">Smaller</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="action-container">
+                        <button class="compress-btn pulse-glow" id="compress-btn" disabled>
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">Start Compression</span>
+                            <div class="btn-loader hidden">
+                                <div class="loader-dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="action-note">
+                            ⚡ Estimated time: <span id="estimated-time">1-2 minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section glass-card hidden" id="progress-section">
+                <div class="section-header">
+                    <h2>Compressing Your Video</h2>
+                    <p class="section-description">Our advanced algorithms are optimizing your video for the perfect balance of quality and size</p>
+                </div>
+                
+                <div class="progress-container">
+                    <!-- Main Progress -->
+                    <div class="main-progress">
+                        <div class="progress-circle">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-bg" cx="60" cy="60" r="54" stroke-width="8"></circle>
+                                <circle class="progress-ring-fill" id="progress-ring" cx="60" cy="60" r="54" stroke-width="8" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                            </svg>
+                            <div class="progress-content">
+                                <div class="progress-percentage" id="progress-percentage">0%</div>
+                                <div class="progress-status" id="progress-status">Starting...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-details">
+                            <div class="progress-steps">
+                                <div class="step active" id="step-1">
+                                    <div class="step-icon">🔍</div>
+                                    <div class="step-info">
+                                        <div class="step-title">Analyzing Video</div>
+                                        <div class="step-description">Reading file properties and content</div>
+                                    </div>
+                                    <div class="step-check">✓</div>
+                                </div>
+                                <div class="step" id="step-2">
+                                    <div class="step-icon">⚙️</div>
+                                    <div class="step-info">
+                                        <div class="step-title">Optimizing Streams</div>
+                                        <div class="step-description">Processing video and audio streams</div>
+                                    </div>
+                                    <div class="step-check">✓</div>
+                                </div>
+                                <div class="step" id="step-3">
+                                    <div class="step-icon">🎯</div>
+                                    <div class="step-info">
+                                        <div class="step-title">Applying Compression</div>
+                                        <div class="step-description">Reducing file size with smart algorithms</div>
+                                    </div>
+                                    <div class="step-check">✓</div>
+                                </div>
+                                <div class="step" id="step-4">
+                                    <div class="step-icon">✨</div>
+                                    <div class="step-info">
+                                        <div class="step-title">Finalizing Output</div>
+                                        <div class="step-description">Creating optimized video file</div>
+                                    </div>
+                                    <div class="step-check">✓</div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-stats">
+                                <div class="progress-stat">
+                                    <div class="stat-label">Time Elapsed</div>
+                                    <div class="stat-value" id="time-elapsed">0s</div>
+                                </div>
+                                <div class="progress-stat">
+                                    <div class="stat-label">Estimated Time Left</div>
+                                    <div class="stat-value" id="time-left">--</div>
+                                </div>
+                                <div class="progress-stat">
+                                    <div class="stat-label">Processing Speed</div>
+                                    <div class="stat-value" id="processing-speed">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Processing Animation -->
+                    <div class="processing-animation">
+                        <div class="wave-container">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <div class="animation-text">Processing frames...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section glass-card hidden" id="results-section">
+                <div class="section-header">
+                    <h2>Compression Complete! 🎉</h2>
+                    <p class="section-description">Your video has been successfully optimized and is ready for download</p>
+                </div>
+                
+                <div class="results-content">
+                    <!-- Success Summary -->
+                    <div class="success-summary">
+                        <div class="success-badge">
+                            <div class="badge-icon">✅</div>
+                            <div class="badge-content">
+                                <div class="badge-title">Compression Successful</div>
+                                <div class="badge-subtitle" id="compression-time">Completed in 0s</div>
+                            </div>
+                        </div>
+                        
+                        <div class="savings-breakdown">
+                            <div class="savings-card">
+                                <div class="savings-icon">💾</div>
+                                <div class="savings-info">
+                                    <div class="savings-label">Space Saved</div>
+                                    <div class="savings-value" id="space-saved-result">0 MB</div>
+                                </div>
+                            </div>
+                            <div class="savings-card">
+                                <div class="savings-icon">📊</div>
+                                <div class="savings-info">
+                                    <div class="savings-label">Reduction</div>
+                                    <div class="savings-value" id="reduction-percent">0%</div>
+                                </div>
+                            </div>
+                            <div class="savings-card">
+                                <div class="savings-icon">⚡</div>
+                                <div class="savings-info">
+                                    <div class="savings-label">Efficiency</div>
+                                    <div class="savings-value" id="efficiency-score">Excellent</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Comparison -->
+                    <div class="comparison-section">
+                        <h3>Before & After Comparison</h3>
+                        <div class="comparison-grid">
+                            <!-- Original Video -->
+                            <div class="comparison-card original">
+                                <div class="card-header">
+                                    <h4>Original Video</h4>
+                                    <div class="file-badge original-badge">Original</div>
+                                </div>
+                                <div class="video-container">
+                                    <video class="video-player" id="original-video" controls></video>
+                                    <div class="video-overlay">
+                                        <div class="overlay-content">
+                                            <div class="overlay-icon">🎥</div>
+                                            <div class="overlay-text">Original</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-stats">
+                                    <div class="stat-row">
+                                        <span class="stat-name">File Size:</span>
+                                        <span class="stat-value" id="final-original-size">0 MB</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Duration:</span>
+                                        <span class="stat-value" id="final-original-duration">0:00</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Resolution:</span>
+                                        <span class="stat-value" id="final-original-resolution">0x0</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Bitrate:</span>
+                                        <span class="stat-value" id="final-original-bitrate">0 kbps</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compressed Video -->
+                            <div class="comparison-card compressed">
+                                <div class="card-header">
+                                    <h4>Compressed Video</h4>
+                                    <div class="file-badge compressed-badge" id="compression-level-badge">Balanced</div>
+                                </div>
+                                <div class="video-container">
+                                    <video class="video-player" id="compressed-video" controls></video>
+                                    <div class="video-overlay">
+                                        <div class="overlay-content">
+                                            <div class="overlay-icon">✨</div>
+                                            <div class="overlay-text">Compressed</div>
+                                        </div>
+                                    </div>
+                                    <div class="compression-badge">
+                                        <span class="compression-percent" id="final-savings-percent">0%</span>
+                                        <span class="compression-text">Smaller</span>
+                                    </div>
+                                </div>
+                                <div class="video-stats">
+                                    <div class="stat-row">
+                                        <span class="stat-name">File Size:</span>
+                                        <span class="stat-value" id="final-compressed-size">0 MB</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Duration:</span>
+                                        <span class="stat-value" id="final-compressed-duration">0:00</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Resolution:</span>
+                                        <span class="stat-value" id="final-compressed-resolution">0x0</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-name">Bitrate:</span>
+                                        <span class="stat-value" id="final-compressed-bitrate">0 kbps</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quality Comparison -->
+                        <div class="quality-comparison">
+                            <h4>Quality Assessment</h4>
+                            <div class="quality-metrics">
+                                <div class="quality-metric">
+                                    <div class="metric-label">Visual Quality</div>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" id="visual-quality-bar" style="width: 95%"></div>
+                                    </div>
+                                    <div class="metric-value" id="visual-quality-value">95%</div>
+                                </div>
+                                <div class="quality-metric">
+                                    <div class="metric-label">Audio Quality</div>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" id="audio-quality-bar" style="width: 90%"></div>
+                                    </div>
+                                    <div class="metric-value" id="audio-quality-value">90%</div>
+                                </div>
+                                <div class="quality-metric">
+                                    <div class="metric-label">Compression Efficiency</div>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" id="efficiency-bar" style="width: 85%"></div>
+                                    </div>
+                                    <div class="metric-value" id="efficiency-value">85%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="results-actions">
+                        <div class="primary-actions">
+                            <button class="download-btn pulse-glow" id="download-btn">
+                                <span class="btn-icon">⬇️</span>
+                                Download Compressed Video
+                            </button>
+                            <button class="share-btn" id="share-btn">
+                                <span class="btn-icon">📤</span>
+                                Share Results
+                            </button>
+                        </div>
+                        <div class="secondary-actions">
+                            <button class="new-video-btn" id="new-video-btn">
+                                <span class="btn-icon">🎬</span>
+                                Compress Another Video
+                            </button>
+                            <button class="settings-btn" id="settings-btn">
+                                <span class="btn-icon">⚙️</span>
+                                Compression Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tips & Recommendations -->
+                    <div class="tips-section">
+                        <h4>💡 Pro Tips</h4>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon">📧</div>
+                                <div class="tip-content">
+                                    <div class="tip-title">Perfect for Email</div>
+                                    <div class="tip-description">Compressed videos are ideal for email attachments and messaging apps</div>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">🌐</div>
+                                <div class="tip-content">
+                                    <div class="tip-title">Web Optimization</div>
+                                    <div class="tip-description">Smaller files load faster on websites and social media platforms</div>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">💾</div>
+                                <div class="tip-content">
+                                    <div class="tip-title">Storage Saving</div>
+                                    <div class="tip-description">Save significant storage space on your devices and cloud storage</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section" id="features">
+                <div class="section-header">
+                    <h2>Why Choose VidZip360?</h2>
+                    <p class="section-description">Experience the next generation of video compression technology</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Our optimized algorithms compress videos up to 3x faster than traditional methods</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Smart Quality</h3>
+                        <p>AI-powered compression maintains visual quality while significantly reducing file size</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>100% Secure</h3>
+                        <p>Your files are processed securely and deleted automatically after compression</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>No Installation</h3>
+                        <p>Works directly in your browser - no software downloads or installations required</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section id="how-it-works" class="glass-card">
+                <div class="section-header">
+                    <h2>How VidZip360 Works</h2>
+                    <p class="section-description">Simple 4-step process to compress your videos</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Your Video</h3>
+                        <p>Simply drag and drop your video file or click to browse. We support MP4, AVI, MOV, MKV, and all major video formats up to 500MB.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Choose Compression Level</h3>
+                        <p>Select from three optimized compression levels: Light (best quality), Balanced (recommended), or Maximum (smallest size).</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>AI-Powered Compression</h3>
+                        <p>Our advanced algorithms analyze your video and apply smart compression while preserving visual quality and reducing file size by up to 80%.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Download & Share</h3>
+                        <p>Download your compressed video instantly. Share the results or compress another video - no limits, completely free!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="glass-card">
+                <div class="section-header">
+                    <h2>About VidZip360</h2>
+                    <p class="section-description">Revolutionizing Video Compression</p>
+                </div>
+                <div class="about-content">
+                    <h3>Our Mission</h3>
+                    <p>VidZip360 was founded with a simple mission: to make professional video compression accessible to everyone. In today's digital world, video files are getting larger while storage and bandwidth remain limited.</p>
+                    
+                    <h3>Our Technology</h3>
+                    <p>Using cutting-edge FFmpeg technology combined with smart optimization algorithms, we deliver compression results that were previously only available to professional video editors.</p>
+                    
+                    <h3>Why Choose VidZip360?</h3>
+                    <ul>
+                        <li>✅ No watermarks on compressed videos</li>
+                        <li>✅ Military-grade security - files deleted after processing</li>
+                        <li>✅ Lightning-fast compression engine</li>
+                        <li>✅ No registration required</li>
+                        <li>✅ Completely free forever</li>
+                    </ul>
+                    
+                    <div class="mission">
+                        <h3>Our Mission</h3>
+                        <p>To empower creators, businesses, and individuals by providing the world's most efficient and user-friendly video compression technology.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Careers Section -->
+            <section id="careers" class="glass-card">
+                <div class="section-header">
+                    <h2>Join Our Team</h2>
+                    <p class="section-description">Exciting Opportunities Coming Soon!</p>
+                </div>
+                <div class="careers-content">
+                    <div class="coming-soon">
+                        <h3>🚀 Exciting Opportunities Coming Soon!</h3>
+                        <p>We're growing fast and will soon be looking for talented individuals to join our mission of revolutionizing video compression technology.</p>
+                        
+                        <div class="upcoming-roles">
+                            <h4>Future Roles We'll Be Hiring For:</h4>
+                            <ul>
+                                <li>Full Stack Developers</li>
+                                <li>Video Processing Engineers</li>
+                                <li>UI/UX Designers</li>
+                                <li>DevOps Engineers</li>
+                                <li>Product Managers</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-hr">
+                            <p>Want to be the first to know when we start hiring?</p>
+                            <p>Email us at: <strong>chiragpulsestudio@gmail.com</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="glass-card">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p class="section-description">We'd Love to Hear From You</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Have questions about VidZip360?</h3>
+                        <p>Need technical support? Want to suggest features? Reach out to us!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-method">
+                                <h4>📧 Email Support</h4>
+                                <p><strong>chiragpulsestudio@gmail.com</strong></p>
+                                <p>We typically respond within 24 hours</p>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h4>🕒 Support Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                                <p>Weekends: Limited availability</p>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h4>🚀 Quick Help</h4>
+                                <p>For fastest support, include:</p>
+                                <ul>
+                                    <li>Your video format and size</li>
+                                    <li>Compression level used</li>
+                                    <li>Any error messages received</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">VidZip360</div>
+                    <p class="footer-tagline">Advanced Video Compression Technology</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📸</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#how-it-works">How It Works</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="#contact">Contact Us</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#careers">Careers</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 Chirag Pulse Studio. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
