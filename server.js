@@ -409,8 +409,9 @@ app.use('*', (req, res) => {
 });
 
 // Server configuration
-const PORT = process.env.PORT || 3000;
-const HOST = '0.0.0.0'; // change from 'localhost' to '0.0.0.0'
+app.listen(PORT, HOST, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+});
 
 // Start server
 app.listen(PORT, HOST, () => {
