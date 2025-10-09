@@ -409,9 +409,13 @@ app.use('*', (req, res) => {
 });
 
 // Server configuration
+const PORT = process.env.PORT || 10000; // fallback for local dev
+const HOST = '0.0.0.0';
+
 app.listen(PORT, HOST, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 Server running on http://${HOST}:${PORT}`);
 });
+
 
 // Start server
 app.listen(PORT, HOST, () => {
